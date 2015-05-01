@@ -15,6 +15,8 @@ public class SingleElimination extends Activity{
 
     public String[] players;
     private static final String TAG = "MyActivity";
+    int numOfTextViews = 0;
+    TextView tv[];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +26,16 @@ public class SingleElimination extends Activity{
         int numOfPlayers;
         numOfPlayers = activityFromBracketScreen.getIntExtra("numberOfPlayers", -1);
         //we get the number that was selected at drop down
+
+        //set the number of text views we need
+        int t = numOfPlayers;
+        while(t > 1) {
+            numOfTextViews += t;
+            t /= 2;
+        }
+        //tv will contain all the text views
+        tv = new TextView[numOfTextViews];
+        int t_index = 0;
 
         setContentView(R.layout.single_elimination_layout);
 
@@ -54,10 +66,24 @@ public class SingleElimination extends Activity{
             View v1;
             for(int j=0; j<2; j++) {
                 v1 = layoutInflater1.inflate(R.layout.box, outer, false);
-                TextView textView = (TextView)v1.findViewById(R.id.box);
-                textView.setText("   Player"+counter);
-                textView.setTextSize(20);
-                outer.addView(textView);
+                //TextView textView = (TextView)v1.findViewById(R.id.box);
+                tv[t_index] = (TextView)v1.findViewById(R.id.box);
+                //textView.setText("   Player"+counter);
+                tv[t_index].setText("   Player"+counter);
+                //textView.setTextSize(20);
+                tv[t_index].setTextSize(20);
+                //set Id of textView
+                //textView.setId(t_index);
+                tv[t_index].setId(t_index);
+                //put textView in tv
+                //tv[t_index] = textView;
+
+                //outer.addView(textView);
+                outer.addView(tv[t_index]);
+
+                //increment index
+                t_index++;
+
                 counter++;
             }
         }
@@ -68,16 +94,12 @@ public class SingleElimination extends Activity{
         int newTop = prevTop + (box_height - 50);
         int mul = 2;
         while(num >= 1) {
-            //int newTop = prevTop + (box_height/2) + (20/2);
-            //int newLeft = prevLeft + box_width + 20;
-
             //int newTop = prevTop + (box_height - 50);
             int newLeft = prevLeft + box_width + 20;
 
             //prevTop = newTop + box_height/2;
             prevTop = newTop;
             prevLeft = newLeft;
-
 
             //add outer boxes
             temp += box_height;
@@ -95,6 +117,32 @@ public class SingleElimination extends Activity{
                 //newTop += (temp + 50) ;
                 newTop += (box_height * mul);
                 parentLayout.addView(outer, params);
+
+                //now add textviews to the outer box
+                LayoutInflater layoutInflater1 = getLayoutInflater();
+                View v1;
+                for(int j=0; j<2; j++) {
+                    v1 = layoutInflater1.inflate(R.layout.box, outer, false);
+                    //TextView textView = (TextView)v1.findViewById(R.id.box);
+                    tv[t_index] = (TextView)v1.findViewById(R.id.box);
+
+                    //tv[t_index].setText("   Player"+t_index);
+
+                    //textView.setTextSize(20);
+                    tv[t_index].setTextSize(20);
+                    //set Id of textView
+                    //textView.setId(t_index);
+                    tv[t_index].setId(t_index);
+                    //put textView in tv
+                    //tv[t_index] = textView;
+
+                    //outer.addView(textView);
+                    outer.addView(tv[t_index]);
+
+                    //increment index
+                    t_index++;
+
+                }
             }
             num = num / 2;
 
