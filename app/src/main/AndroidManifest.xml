@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cs378.bracketapp" >
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".PlayerManager"
+            android:label="Set Player Name"
+            android:theme="@style/AppTheme"/>
+
+        <activity android:name=".BracketScreen"
+            android:label="Get Bracket"
+            android:theme="@style/AppTheme" />
+        
+        <activity android:name=".SingleElimination"
+            android:label="Get Single Elimination"
+            android:theme="@style/AppTheme" />
+
+        <activity android:name=".HelpScreen"
+            android:label="Get Help Screen"
+            android:theme="@style/AppTheme" />
+        <!-- Splash screen -->
+        <activity android:name=".Splash"
+            android:label="Get Splash Screen"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+
+        </activity>
+
+    </application>
+
+</manifest>
