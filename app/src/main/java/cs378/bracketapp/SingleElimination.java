@@ -46,7 +46,7 @@ public class SingleElimination extends Activity{
             RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(box_width,box_height);
             params.leftMargin = leftMar;
             params.topMargin = topMar;
-            topMar += 150;
+            topMar += box_height;
             parentLayout.addView(outer, params);
             //parentLayout.addView(outer);
             //we are going to inflate in "outer" too
@@ -64,12 +64,20 @@ public class SingleElimination extends Activity{
         int temp = box_height;
         //now make the rest of the bracket
         topMar = 150; int prevTop = origTop; int prevLeft = origLeft;
+        int h_inc = prevTop + (box_height - 50);
+        int newTop = prevTop + (box_height - 50);
+        int mul = 2;
         while(num >= 1) {
-            int newTop = prevTop + (box_height/2) + (20/2);
+            //int newTop = prevTop + (box_height/2) + (20/2);
+            //int newLeft = prevLeft + box_width + 20;
+
+            //int newTop = prevTop + (box_height - 50);
             int newLeft = prevLeft + box_width + 20;
 
-            prevTop = newTop + box_height/2;
+            //prevTop = newTop + box_height/2;
+            prevTop = newTop;
             prevLeft = newLeft;
+
 
             //add outer boxes
             temp += box_height;
@@ -83,10 +91,15 @@ public class SingleElimination extends Activity{
                 RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(box_width,box_height);
                 params.leftMargin = newLeft;
                 params.topMargin = newTop;
-                newTop += (temp + 50) ;
+                //params.topMargin = prevTop;
+                //newTop += (temp + 50) ;
+                newTop += (box_height * mul);
                 parentLayout.addView(outer, params);
             }
             num = num / 2;
+
+            newTop = prevTop + (h_inc *(mul/2));
+            mul *= 2;
         }
 
 //        for(int i=1; i<=numOfPlayers; i++) {
