@@ -27,6 +27,7 @@
         
         <activity android:name=".SingleElimination"
             android:label="Get Single Elimination"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
 
         <activity android:name=".HelpScreen"
@@ -34,7 +35,7 @@
             android:theme="@style/AppTheme" />
         <!-- Splash screen -->
         <activity android:name=".Splash"
-            android:label="Get Splash Screen"
+            android:label="BracketApp"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
