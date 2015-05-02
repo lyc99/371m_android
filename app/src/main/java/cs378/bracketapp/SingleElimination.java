@@ -16,6 +16,7 @@ public class SingleElimination extends Activity{
     public String[] players;
     private static final String TAG = "MyActivity";
     int numOfTextViews = 0;
+    int numOfPlayers = 0;
     TextView tv[];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +24,7 @@ public class SingleElimination extends Activity{
 
         //setContentView(R.layout.single_elimination_layout);
         Intent activityFromBracketScreen = getIntent();
-        int numOfPlayers;
+        //int numOfPlayers;
         numOfPlayers = activityFromBracketScreen.getIntExtra("numberOfPlayers", -1);
         //we get the number that was selected at drop down
 
@@ -68,6 +69,7 @@ public class SingleElimination extends Activity{
                 v1 = layoutInflater1.inflate(R.layout.box, outer, false);
                 //TextView textView = (TextView)v1.findViewById(R.id.box);
                 tv[t_index] = (TextView)v1.findViewById(R.id.box);
+
                 //textView.setText("   Player"+counter);
                 tv[t_index].setText("   Player"+counter);
                 //textView.setTextSize(20);
@@ -203,6 +205,82 @@ public class SingleElimination extends Activity{
 //        }
 //
 //        int numOfPlayers = activityFromBracketScreen.getExtras().getInt("numberOfPlayers");
+
+    }
+
+    public void onNameProgressClick(View view) {
+        int size = numOfTextViews;
+        int remain = numOfPlayers;
+
+        TextView selectedView = (TextView) view;
+        String playerName = selectedView.getText().toString();
+        int playerId = selectedView.getId();
+        boolean doNothing = false;
+
+        if (playerId < numOfTextViews) {
+
+            int ranges[] = new int[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
+            int index = 0;
+            int r = remain;
+            int previousRange = 0;
+            //figure out the correct range (column) of selected textview
+            while (r > 1) {
+                ranges[index] = r + previousRange;
+                previousRange = ranges[index];
+                index++;
+                r = r / 2;
+            }
+            index = 0;
+            boolean found = false;
+            int correctRange = 0;
+            while (found == false) {
+                if (playerId < ranges[index]) {
+                    correctRange = index;
+                    found = true;
+                }
+                index++;
+            }
+            index = 0;
+
+            //the correct range (column) is found. now find the correct textview id to copy name to
+            int rangeToCopy = correctRange + 1;
+            //int destinationIDs[] = new int[]{-1, -1, -1, -1, -1};
+            int destinationIDs[] = new int[1000];
+            for(int i=0; i<destinationIDs.length; i++) {
+                destinationIDs[i] = -1;
+            }
+            double n = numOfPlayers / Math.pow(2.0, correctRange);
+            int numberOfOptions = (int) n;
+
+            int a = ranges[correctRange];
+            for(int i=0; i< (ranges[rangeToCopy] - ranges[correctRange]); i++) {
+                destinationIDs[i] = a;
+                a++;
+            }
+
+            int idIndex;
+            //now find the correct textview id
+            if(playerId < numOfPlayers) {
+                idIndex = playerId / 2;
+            }
+            else {
+                //idIndex = (playerId - numberOfOptions * 2) / 2;
+                idIndex = (playerId - (ranges[correctRange-1])) / 2;
+            }
+            int calculatedId = destinationIDs[idIndex];
+
+            //numOfplayers
+
+            //tv[calculatedId].setText(playerName + " " + playerId + " " + numOfPlayers);
+            if(calculatedId != -1) {
+                tv[calculatedId].setText(playerName);
+            }
+
+        }
+
+        else {
+
+        }
 
     }
 }
