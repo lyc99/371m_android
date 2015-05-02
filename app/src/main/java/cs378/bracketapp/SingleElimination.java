@@ -34,6 +34,7 @@ public class SingleElimination extends Activity{
             numOfTextViews += t;
             t /= 2;
         }
+        numOfTextViews += 1;
         //tv will contain all the text views
         tv = new TextView[numOfTextViews];
         int t_index = 0;
@@ -89,7 +90,7 @@ public class SingleElimination extends Activity{
                 counter++;
             }
         }
-        int temp = box_height;
+        int temp = box_height; int left_lastbox=0; int top_lastbox=0;
         //now make the rest of the bracket
         topMar = 150; int prevTop = origTop; int prevLeft = origLeft;
         int h_inc = prevTop + (box_height - 50);
@@ -117,6 +118,10 @@ public class SingleElimination extends Activity{
                 params.topMargin = newTop;
                 //params.topMargin = prevTop;
                 //newTop += (temp + 50) ;
+
+                left_lastbox = newLeft;
+                top_lastbox = newTop;
+
                 newTop += (box_height * mul);
                 parentLayout.addView(outer, params);
 
@@ -151,6 +156,38 @@ public class SingleElimination extends Activity{
             newTop = prevTop + (h_inc *(mul/2));
             mul *= 2;
         }
+        //now place the last box
+        v = layoutInflater.inflate(R.layout.outerbox, parentLayout, false);
+        //get the outer box
+        LinearLayout outer = (LinearLayout)v.findViewById(R.id.outerBox);
+
+        //Set position of the box
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(box_width,box_height/2);
+        params.leftMargin = left_lastbox + 20+ box_width;
+        params.topMargin = top_lastbox + box_height/4;
+        //topMar += box_height;
+        parentLayout.addView(outer, params);
+        //parentLayout.addView(outer);
+        //we are going to inflate in "outer" too
+        LayoutInflater layoutInflater1 = getLayoutInflater();
+        View v1;
+
+        v1 = layoutInflater1.inflate(R.layout.box, outer, false);
+        //TextView textView = (TextView)v1.findViewById(R.id.box);
+        tv[t_index] = (TextView)v1.findViewById(R.id.box);
+
+        //tv[t_index].setText("   Player"+t_index);
+
+        //textView.setTextSize(20);
+        tv[t_index].setTextSize(20);
+        //set Id of textView
+        //textView.setId(t_index);
+        tv[t_index].setId(t_index);
+        //put textView in tv
+        //tv[t_index] = textView;
+
+        //outer.addView(textView);
+        outer.addView(tv[t_index]);
 
 //        for(int i=1; i<=numOfPlayers; i++) {
 //            //add the text layout to the parent layout
@@ -217,7 +254,7 @@ public class SingleElimination extends Activity{
         int playerId = selectedView.getId();
         boolean doNothing = false;
 
-        if (playerId < numOfTextViews) {
+        if (playerId < tv.length-3) {
 
             int ranges[] = new int[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1};
             int index = 0;
@@ -279,7 +316,7 @@ public class SingleElimination extends Activity{
         }
 
         else {
-
+            tv[tv.length-1].setText(playerName);
         }
 
     }
