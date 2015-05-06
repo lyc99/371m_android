@@ -1,37 +1,79 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp"
     android:gravity="center|top"
     android:orientation="vertical" tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <Button
+        android:layout_width="45dp"
         android:layout_height="wrap_content"
-        android:text="@string/make_bracket_view"
-        android:textStyle="bold"
-        android:textSize="20sp"/>
+        android:text="+"
+        android:textSize="25dp"
+        android:onClick="onGetBracketClick"
+        android:layout_gravity="right"
+        android:id="@+id/button"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Make"
-        android:layout_marginTop="10dp"
-        android:onClick="onGetBracketClick"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingTop="20dp"
-        android:text="@string/help_view"
-        android:textStyle="bold"
-        android:textSize="20sp"/>
-
-    <Button
-        android:layout_width="wrap_content"
+        android:layout_width="63dp"
         android:layout_height="wrap_content"
         android:text="Help"
-        android:layout_marginTop="10dp"
-        android:onClick="onGetHelpClick"/>
+        android:onClick="onGetHelpClick"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignTop="@+id/button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
-</LinearLayout>
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button"
+        android:stretchColumns="0"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+            <TextView
+                android:text="Brackets Created"
+                android:textSize="25dp"></TextView>
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="New Button"
+                android:id="@+id/button2"
+                android:layout_column="0" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Button"
+                android:id="@+id/button3"
+                android:layout_column="0" />
+        </TableRow>
+    </TableLayout>
+
+
+</RelativeLayout>

@@ -2,11 +2,11 @@
 <items version="2" >
 
     <item
-        jar="/Users/Goda/Documents/AndroidProject/AndroidBracketGenerator/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/classes.jar"
+        jar="/Users/Goda/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.2.2/285cb9c666f0f0f3dd8a1be04e1f457eb7b15113/jackson-annotations-2.2.2.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
-        <dex dex="/Users/Goda/Documents/AndroidProject/AndroidBracketGenerator/app/build/intermediates/pre-dexed/debug/classes-8bb92f88f99d731a0d82bd1ad6e8db95be109301.jar" />
+        sha1="285cb9c666f0f0f3dd8a1be04e1f457eb7b15113">
+        <dex dex="/Users/Goda/Documents/AndroidProject/AndroidBracketGenerator/app/build/intermediates/pre-dexed/debug/jackson-annotations-2.2.2-c996a8f520009733ddc4c2189d29f627bffb2a36.jar" />
     </item>
     <item
         jar="/Users/Goda/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.0.0/support-annotations-22.0.0.jar"
@@ -14,6 +14,41 @@
         revision="21.1.2"
         sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
         <dex dex="/Users/Goda/Documents/AndroidProject/AndroidBracketGenerator/app/build/intermediates/pre-dexed/debug/support-annotations-22.0.0-9eb10afdb152a83785694270bf3598ac860e2d7f.jar" />
+    </item>
+    <item
+        jar="/Users/Goda/.gradle/caches/modules-2/files-2.1/com.firebase/firebase-client-jvm/2.2.3/e787a02a644f2681e4af82cdc88dd2f69877692b/firebase-client-jvm-2.2.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="e787a02a644f2681e4af82cdc88dd2f69877692b">
+        <dex dex="/Users/Goda/Documents/AndroidProject/AndroidBracketGenerator/app/build/intermediates/pre-dexed/debug/firebase-client-jvm-2.2.3-0999c50843a2d2bbb1e85964af4ff3fe737d723a.jar" />
+    </item>
+    <item
+        jar="/Users/Goda/.gradle/caches/modules-2/files-2.1/com.firebase/firebase-client-android/2.2.3/682d0a8dce58e47bde57316aac7d6bb5618dee6b/firebase-client-android-2.2.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="682d0a8dce58e47bde57316aac7d6bb5618dee6b">
+        <dex dex="/Users/Goda/Documents/AndroidProject/AndroidBracketGenerator/app/build/intermediates/pre-dexed/debug/firebase-client-android-2.2.3-cbd794802273c24c8904bea7df64c7bd96012111.jar" />
+    </item>
+    <item
+        jar="/Users/Goda/.gradle/caches/modules-2/files-2.1/com.firebase/tubesock/0.0.11/d37cb67277928cf59344b4196af8d9cee1f1a27c/tubesock-0.0.11.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d37cb67277928cf59344b4196af8d9cee1f1a27c">
+        <dex dex="/Users/Goda/Documents/AndroidProject/AndroidBracketGenerator/app/build/intermediates/pre-dexed/debug/tubesock-0.0.11-e37de0e2799ed766725e0ee46d725c2960a2c21f.jar" />
+    </item>
+    <item
+        jar="/Users/Goda/Documents/AndroidProject/AndroidBracketGenerator/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
+        <dex dex="/Users/Goda/Documents/AndroidProject/AndroidBracketGenerator/app/build/intermediates/pre-dexed/debug/classes-8bb92f88f99d731a0d82bd1ad6e8db95be109301.jar" />
+    </item>
+    <item
+        jar="/Users/Goda/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.2.2/3c8f6018eaa72d43b261181e801e6f8676c16ef6/jackson-databind-2.2.2.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="3c8f6018eaa72d43b261181e801e6f8676c16ef6">
+        <dex dex="/Users/Goda/Documents/AndroidProject/AndroidBracketGenerator/app/build/intermediates/pre-dexed/debug/jackson-databind-2.2.2-5abd6283747d2690f0e1dc5dafe4fdd3d1ad2404.jar" />
     </item>
     <item
         jar="/Users/Goda/Documents/AndroidProject/AndroidBracketGenerator/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/libs/internal_impl-22.0.0.jar"
@@ -28,6 +63,13 @@
         revision="21.1.2"
         sha1="d84409890828e07d344a3b9b1da545dba9897b51">
         <dex dex="/Users/Goda/Documents/AndroidProject/AndroidBracketGenerator/app/build/intermediates/pre-dexed/debug/classes-1d9886a4bc217dc043c9bf34f611dd71a3997cc1.jar" />
+    </item>
+    <item
+        jar="/Users/Goda/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.2.2/d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b/jackson-core-2.2.2.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b">
+        <dex dex="/Users/Goda/Documents/AndroidProject/AndroidBracketGenerator/app/build/intermediates/pre-dexed/debug/jackson-core-2.2.2-e9ca8948e025d2a2fbf83b3366e01bed57ba842a.jar" />
     </item>
 
 </items>

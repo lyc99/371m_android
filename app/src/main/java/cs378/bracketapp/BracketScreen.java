@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.Spinner;
 
 public class BracketScreen extends Activity {
@@ -71,15 +70,15 @@ public class BracketScreen extends Activity {
 
 
 
-    //when you press ENTER******NO... using spinners now
+    //when you press ENTER
     public void onSendSingleElimination(View view) {
         Intent getSingleEliminationIntent = new Intent(this, SingleElimination.class);
 
-        //getSingleEliminationIntent.putExtra("numberOfPlayers", R.id.number_of_players_single_elimination);
         Spinner editPlayerNumber = (Spinner) findViewById(R.id.single_elimination_number_of_players_spinner);
         int numOfPlayers = Integer.parseInt(editPlayerNumber.getSelectedItem().toString());
         getSingleEliminationIntent.putExtra("numberOfPlayers", numOfPlayers);
 
+        //getSingleEliminationIntent.putExtra("numberOfPlayers", R.id.number_of_players_single_elimination);
 
         startActivity(getSingleEliminationIntent);
 
@@ -92,11 +91,15 @@ public class BracketScreen extends Activity {
 //            intent.putExtra("selected", single_elimination_spinner.getSelectedItem().toString());
 //            if(single_elimination_spinner.getSelectedItem().toString() != "")
 //                startActivity(intent);
-            Log.d(TAG, "onSendBracketInfo called");
+        Bundle loginBundle = getIntent().getBundleExtra("loginBundle");
+        String uid = loginBundle.getString("uid");
+
+        Log.d(TAG, "onSendBracketInfo called");
             Intent getPlayerManagerIntent = new Intent(this, PlayerManager.class);
             Spinner editPlayerNumber = (Spinner) findViewById(R.id.single_elimination_number_of_players_spinner);
             int numOfPlayers = Integer.parseInt(editPlayerNumber.getSelectedItem().toString());
             getPlayerManagerIntent.putExtra("numberOfPlayers", numOfPlayers);
+            getPlayerManagerIntent.putExtra("uid", uid);
             Log.d(TAG, "startActivity playerManager");
 
             startActivity(getPlayerManagerIntent);

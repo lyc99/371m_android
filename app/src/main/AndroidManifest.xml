@@ -2,48 +2,62 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="cs378.bracketapp" >
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme"
+        android:name=".GlobalState">
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/my_page" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+                <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             </intent-filter>
         </activity>
-
-        <activity android:name=".PlayerManager"
+        <activity
+            android:name=".PlayerManager"
             android:label="Set Player Name"
-            android:theme="@style/AppTheme"/>
-
-        <activity android:name=".BracketScreen"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".BracketScreen"
             android:label="Get Bracket"
             android:theme="@style/AppTheme" />
-        
-        <activity android:name=".SingleElimination"
-            android:label="Get Single Elimination"
-            android:screenOrientation="portrait"
+        <activity
+            android:name=".SingleElimination"
+            android:label="Single Elimination"
             android:theme="@style/AppTheme" />
-
-        <activity android:name=".HelpScreen"
-            android:label="Get Help Screen"
+        <activity
+            android:name=".HelpScreen"
+            android:label="Help"
             android:theme="@style/AppTheme" />
         <!-- Splash screen -->
-        <activity android:name=".Splash"
+        <activity
+            android:name=".Splash"
             android:label="BracketApp"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login" >
+        </activity>
+        <activity
+            android:name=".ForgotPasswordActivity"
+            android:label="@string/title_activity_forgot_password" >
+        </activity>
+        <activity
+            android:name=".ChangePasswordActivity"
+            android:label="@string/title_activity_change_password" >
+        </activity>
     </application>
 
 </manifest>

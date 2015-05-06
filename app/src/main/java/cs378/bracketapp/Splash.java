@@ -7,6 +7,7 @@ import android.os.Handler;
 
 public class Splash extends Activity {
     //Splash screen timer
+
     private static int SPLASH_TIME_OUT = 5000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,7 +16,7 @@ public class Splash extends Activity {
 
         new Handler().postDelayed(new Runnable() {
             public void run() {
-                Intent i = new Intent(Splash.this, MainActivity.class);
+                Intent i = new Intent(Splash.this, LoginActivity.class);
                 startActivity(i);
 
                 finish();
